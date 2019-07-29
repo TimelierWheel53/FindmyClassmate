@@ -2,22 +2,42 @@
 import webapp2
 import jinja2
 import os
+from google.appengine.ext import ndb
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
+
+class User(ndb.Model):
+  name = ndb.StringProperty(required=True)
+  password = ndb.StringProperty(required=True)
+
+
 class LogIn (webapp2.RequestHandler):
     def get(self):
         template=jinja_env.get_template('index.html')
         self.response.write(template.render())
     def post(self):
-        name_user = self.request.get('username')
-        word_pass = self.request.get('password')
-        user = User(name = name_user,
-                    password = word_pass)
-        all_users = User.query().fetch()
-        all_users.insert (0,user)
+        new_user = self.request.get('newname')
+        new_pass = self.request.get('newpass')
+        user = User(name = new_user,
+                    password = new_pass)
+        user.put()
 
-application = webapp2.WSGIApplication([('/', LogIn)], debug=True)
+#class Home (webapp2.RequestHandler):
+
+
+class Profile (webapp2.RequestHandler):
+    def get(self):
+        profile_template = jinja_env.get_template('profile.html')
+        self.response.write(profile_template.render())
+
+
+application = webapp2.WSGIApplication([
+    ('/', LogIn),
+    #('/home', Home ),
+    ('/profile', Profile),
+]
+, debug=True)
