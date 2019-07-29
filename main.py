@@ -25,7 +25,9 @@ class LogIn (webapp2.RequestHandler):
         user = User(name = new_user,
                     password = new_pass)
         user.put()
-        
+
+#class Home (webapp2.RequestHandler):
+
 
 class Profile (webapp2.RequestHandler):
     def get(self):
@@ -35,7 +37,7 @@ class Profile (webapp2.RequestHandler):
 
 application = webapp2.WSGIApplication([
     ('/', LogIn),
-    ('/test', LogIn2),
+    #('/home', Home ),
     ('/profile', Profile),
 ]
 , debug=True)
