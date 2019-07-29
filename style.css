@@ -31,12 +31,9 @@ h2 {
 	display: inline-block;
 	border-radius: 100%;
 }
-.color .red    {background: #fa5a5a;}
-.color .yellow {background: #f0d264;}
-.color .green  {background: #82c8a0;}
+
 .color .cyan   {background: #7fccde;}
-.color .blue   {background: #6698cb;}
-.color .purple {background: #cb99c5;}
+
 
 .content,
 .content-gradient,
@@ -88,7 +85,3 @@ pre .val {color: #e6db74;} /* value */
 a[class*="btn"] {text-decoration: none;}
 input[class*="btn"],
 button[class*="btn"] {border: 0;}
-
-<a href="#" class="btn-gradient red small">Button</a>
-
-/*https://codepen.io/FelipeMarcos/pen/tfhEg*/
