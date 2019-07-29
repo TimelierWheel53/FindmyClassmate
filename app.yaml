@@ -3,8 +3,8 @@ api_version: 1
 threadsafe: true
 
 handlers:
-- url: /.*
-  script: main.app
+- url: /*.
+  script: main.application
 
 libraries:
 - name: webapp2
