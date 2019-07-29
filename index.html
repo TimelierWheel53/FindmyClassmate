@@ -1,11 +1,12 @@
 
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <script src="script.js"></script>
-    <link rel = "stylesheet" href = "style.css">
+    <link href = "style.css" rel = "stylesheet" type = "text/css">
     <title>Sign-In</title>
   </head>
   <body>
@@ -19,26 +20,20 @@
         <br>
         <button id = "submit-login"> Log In </button>
       </div>
-      <form action="/" method="post">
       <div class= "output"></div>
         <p id = "new-id"> Create An Account </p>
         <p id = "username" class = 'create-text'> Username: </p>
-        <input type = 'text' name = "newname">
+        <input type = 'text' name = "username">
         <p id = "password" class = 'create-text'> Password: </p>
-        <input type = 'text' name = "newpass">
+        <input type = 'text' name = "password">
         <br>
-        <button id = "submit-login" > Create An Account </button>
+        <button id = "submit-login"> Create An Account </button>
       </div>
-    </form>
     </div>
   </body>
 
-<<<<<<< HEAD
-<canvas width="400" height="400" id="game"></canvas>
-=======
 <canvas  width="400" height="400" id="game" style = "border: 3px solid black;">
 
->>>>>>> a52b2915e55a2115bdcf31a3e06ea597135d11fe
   <script>
   var canvas = document.getElementById('game');
   var context = canvas.getContext('2d');
@@ -163,8 +158,4 @@
   // start the game
   requestAnimationFrame(loop);
   </script>
-<<<<<<< HEAD
-  </body>
-=======
   </canvas>
->>>>>>> a52b2915e55a2115bdcf31a3e06ea597135d11fe
