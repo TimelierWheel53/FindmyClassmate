@@ -66,10 +66,17 @@ class Snake (webapp2.RequestHandler):
         template=jinja_env.get_template('snake.html')
         self.response.write(template.render())
 
+class Snake (webapp2.RequestHandler):
+    def get(self):
+        template=jinja_env.get_template('snake.html')
+        self.response.write(template.render())
+
+
+
 application = webapp2.WSGIApplication([
     ('/', LogIn),
     ('/home', Major),
-    ('/profile', Profile)
-    ('/snake', Snake),
+    ('/profile', Profile),
+    ('/snake', Snake)
 ]
 , debug=True)
