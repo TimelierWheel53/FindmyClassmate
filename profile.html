@@ -6,12 +6,13 @@
   </head>
   <body>
       <!--this div goes on the upper left side of the page-->
+  <form action="/profile" method="post">
     <div class="information">
       <p id = "name" class = 'create-text'> Name: </p>
       <input type = 'text' name = "name">
       <p id = "email" class = 'create-text'> E-mail: </p>
       <input type = 'text' name = "email">
-      <p id = "grad" class = 'create-text'> Graduation Date: </p>
+      <p id = "grad" class = 'create-text'> Expected Graduation Date: </p>
       <input type = 'text' name = "grad">
       <p id = "major" class = 'create-text'> Major: </p>
       <input type = 'text' name = "major">
@@ -31,7 +32,7 @@
       <p id = "bird" class = 'create-text'> Twitter: </p>
       <input type = 'text' name = "bird">
     </div>
-
+    <button id = "submit-login"> Save </button>
+    </form>
   </body>
-
 </html>

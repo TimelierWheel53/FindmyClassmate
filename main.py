@@ -11,9 +11,11 @@ jinja_env = jinja2.Environment(
 
 
 class User(ndb.Model):
-  name = ndb.StringProperty(required=True)
-  password = ndb.StringProperty(required=True)
-
+  user_name = ndb.StringProperty(required=False, default= '')
+  password = ndb.StringProperty(required=False, default = '')
+  e_mail = ndb.StringProperty(required=False, default = '')
+  grad_date = ndb.StringProperty(required=False, default = '')
+  major = ndb.StringProperty(required=False, default = '' )
 
 class LogIn (webapp2.RequestHandler):
     def get(self):
@@ -22,22 +24,35 @@ class LogIn (webapp2.RequestHandler):
     def post(self):
         new_user = self.request.get('newname')
         new_pass = self.request.get('newpass')
-        user = User(name = new_user,
+        user = User(user_name = new_user,
                     password = new_pass)
         user.put()
-
-#class Home (webapp2.RequestHandler):
-
+        self.redirect("/profile")
 
 class Profile (webapp2.RequestHandler):
     def get(self):
         profile_template = jinja_env.get_template('profile.html')
         self.response.write(profile_template.render())
+    def post(self):
+        new_name = self.request.get('name')
+        new_mail = self.request.get('email')
+        grad = self.request.get('grad')
+        new_major = self.request.get('major')
+        user = User(e_mail = new_mail,
+                    grad_date = grad,
+                    major = new_major,)
+        user.put()
+
+class Major (webapp2.RequestHandler):
+    def get(self):
+        template=jinja_env.get_template('majors.html')
+        self.response.write(template.render())
+
 
 
 application = webapp2.WSGIApplication([
     ('/', LogIn),
-    #('/home', Home ),
+    ('/home', Major),
     ('/profile', Profile),
 ]
 , debug=True)
