@@ -27,11 +27,13 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    text-align: center;
   }
 
   #navbar a:hover {
     background-color: #ebe234;
     color: black;
+
   }
 
   #navbar a.active {
@@ -57,64 +59,32 @@
 
   <div class="header">
 
-  <div id="navbar">
+   <div id="navbar">
+     <center>
     <a class="active" href link="file:///Users/Abduce/Desktop/FindmyClassmate/homepage.html">Home</a>
     <a href="javascript:void(0)">About Us</a>
     <a href="javascript:void(0)">Contact</a>
+    </center>
   </div>
     <style>
 	  		body {
+          display: flex;
+          justify-content: center;
 	    			background-image: url("https://blogs.sjsu.edu/mysjsu/files/2014/08/sjsu-tower-hall-BCramer-SJSU6223-4-10-170-2el266z.jpg");
             background-size: cover;
 				font-family: sans-serif;
-				text-align: left;
+
 	  			}
-	  		div {
-	    			display: inline-block;
-	    			border: 1% solid black;
-				padding:0%;
+
 	  		}
-	  		#left {
-				float: left;
-				height: 200px;
-				width: 15%;
-				margin: 0%;
-				background-color: #ef6285
-	  		}
-	  		#middle {
-	   		 	float:middle;
-				height: 500px;
-				width: 15%;
-				margin: 0%;
-				background-color: #fce703;
-        position: relative;
-        top: -25px;
-	  		}
-        #middle1 {
-	   		 	float:middle;
-				height: 500px;
-				width: 15%;
-				margin: 0%;
-				background-color: #fce703;
-	  		}
-	  		#right {
-	    		float: right;
-	    		height: 300px;
-				width: 15%;
-				margin: 0%;
-				background-color: #72d3a7;
-	  		}
-	  		#container {
-	    			display: block;
-	    			margin:auto;
-				background-color: #daa9f2;
-	  		}
+
 	  		img {
 	  			height: 100%;
 	  			width: 50%;
 
         }
         #outer {
+          display: flex;
           width: 100%;
           text-align: center;
         }
@@ -132,6 +102,28 @@
         {
           top: 100px;
         }
+        #wrapper{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+        #box1
+        {
+          background-color: yellow;
+          margin-right: 20px;
+        }
+        #box2
+        {
+          background-color: yellow;
+
+        }
+        #wrapper
+        {
+          display: flex;
+          flex-direction: row;
+
+        }
+
 
         .form_arg{
           font-size: 0.75em;
@@ -150,29 +142,20 @@
           <br>
         </br>
         <h3><strong><font color="Yellow">  Welcome to FindmyClassmate!!<h3></font></strong>
+          <div id = "wrapper">
+          <div id ="box1">
+                  <h3> Current Member </h3>
+                <button type="button"><h2><u><a href="file:///Users/Abduce/Desktop/FindmyClassmate/index.html"> </a><font color="blue"> Login</font></h2></u></button>
+          </div>
+
+          <div id = "box2">
+            <h3> Sign Up </h3>
+            <button type="button"><h2><u><a href="file:///Users/Abduce/Desktop/FindmyClassmate/index.html"> </a> <font color="blue"> Sign Up </font></h2></u></button>
+          </div>
+          </div>
+
         </div>
 
 
-<div id= "middle">
-    <h6 id= "jesus"><u><h2><font color="blue"> Current Member <font><u></h2>
-      <br></br>
-    <div id="god"><button type="button"><h2><u><a href="file:///Users/Abduce/Desktop/FindmyClassmate/index.html" title="Go to W3Schools HTML </a><font color="blue"> Login</font></h2></u></button></div>
-
-<p></p>
-</div>
-<div id= "middle1">
-
-  <h6><font color="blue" Sign Up <font></h6>
-    <form>
-      <div id="god"><u><b><font color="blue"> Create Account </font></b></u></div>
-        <br></br>
-      <div id="god"><button type="button"><h2><u><a href="file:///Users/Abduce/Desktop/FindmyClassmate/index.html" <font color="blue"> Sign Up </font></h2></u></button></div>
-      <div class="form_arg">
-
-
-
-</form>
-
-      </div>
   </body>
 </html>
