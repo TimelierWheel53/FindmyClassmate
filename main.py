@@ -56,15 +56,20 @@ class Profile (webapp2.RequestHandler):
         originalUser.major = new_major
         originalUser.put()
 
-
 class Major (webapp2.RequestHandler):
     def post(self):
         template=jinja_env.get_template('majors.html')
         self.response.write(template.render())
 
+class Snake (webapp2.RequestHandler):
+    def get(self):
+        template=jinja_env.get_template('snake.html')
+        self.response.write(template.render())
+
 application = webapp2.WSGIApplication([
     ('/', LogIn),
     ('/home', Major),
-    ('/profile', Profile),
+    ('/profile', Profile)
+    ('/snake', Snake),
 ]
 , debug=True)
