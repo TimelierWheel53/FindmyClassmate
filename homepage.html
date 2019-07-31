@@ -29,6 +29,7 @@
   #navbar a:hover {
     background-color: #ebe234;
     color: black;
+
   }
   #navbar a.active {
     background-color: ##3440eb;
@@ -39,7 +40,7 @@
   }
   .sticky {
     position: fixed;
-    top: 0;
+    top: AUTO;
     width: 100%;
   }
   .sticky + .content {
@@ -56,6 +57,7 @@
     <a href="javascript:void(0)">About Us</a>
     <a href="javascript:void(0)">Contact</a>
     </center>
+
   </head>
   </div>
     <style>
@@ -66,42 +68,40 @@
 	    			background-image: url("https://blogs.sjsu.edu/mysjsu/files/2014/08/sjsu-tower-hall-BCramer-SJSU6223-4-10-170-2el266z.jpg");
           } body
 
-
 	  		img {
 	  			height: 100%;
 	  			width: 50%;
         }
 
-        }
-        #inner {
-          display: inline-block;
-        }
+       /* THIS IS ALSO ALJUSTMENT FOR BOX2 AND BOX1 */
+        #outer {
+          display: flex;
+          width: 100%;
+          text-align: center;
 
+        }
+/* THIS IS ALSO ALJUSTMENT FOR BOX2 AND BOX1 */
         #wrapper{
           display: flex;
           flex-direction: row;
           justify-content: center;
         }
-        /* the box1 and box2 is the yellow boxs adjustment */
+          /* the box1 and box2 is the yellow boxs adjustment */
         #box1
         {
           background-color: yellow;
-          margin-right: 5%;
+          margin-right: 20px;
           padding: 30px;
+          display: inline-block;
         }
         #box2
         {
           background-color: yellow;
-          margin-center: 20%;
+          margin-right: 20px;
           padding: 30px;
-
-
+          display: inline-block;
         }
-        #wrapper
-        {
-          display: flex;
-          flex-direction: row;
-        }
+
         .form_arg{
           font-size: 0.75em;
         }
@@ -124,7 +124,7 @@
                   <!-- Quick reminder ADD THE LOGIN LINK -->
                 <button type="button"><h2><u><a href="ADD THE LOGIN LINK"> </a><font color="blue"> Login</font></h2></u></button>
           </div>
-
+         <div id = "wrapper">
           <div id = "box2">
             <h5><font color="blue"> Sign Up </h5>
             <!-- Quick reminder ADD THE CREATE ACCOUNT LINK -->
