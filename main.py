@@ -11,12 +11,23 @@ jinja_env = jinja2.Environment(
     autoescape=True)
 
 def hash_password(password):
-    #Hash a password for storing
+    #Hash a password for storing.
     salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
     pwdhash = hashlib.pbkdf2_hmac('sha512', password.encode('utf-8'),
                                 salt, 100000)
     pwdhash = binascii.hexlify(pwdhash)
     return (salt + pwdhash).decode('ascii')
+
+def verify_password(stored_password, provided_password):
+    #Verify a stored password against one provided by user
+    salt = stored_password[:64]
+    stored_password = stored_password[64:]
+    pwdhash = hashlib.pbkdf2_hmac('sha512',
+                                  provided_password.encode('utf-8'),
+                                  salt.encode('ascii'),
+                                  100000)
+    pwdhash = binascii.hexlify(pwdhash).decode('ascii')
+    return pwdhash == stored_password
 
 class User(ndb.Model):
   user_name = ndb.StringProperty(required=False)
@@ -25,20 +36,41 @@ class User(ndb.Model):
   grad_date = ndb.StringProperty(required=False, default = '')
   major = ndb.StringProperty(required=False, default = '' )
 
-class LogIn (webapp2.RequestHandler):
+class Home (webapp2.RequestHandler):
+     def get(self):
+         template=jinja_env.get_template('homepage.html')
+         self.response.write(template.render())
+
+class CreateAccount (webapp2.RequestHandler):
     def get(self):
         template=jinja_env.get_template('index.html')
         self.response.write(template.render())
     def post(self):
-        new_user = self.request.get('username')
-        new_pass = self.request.get('password')
-        user = User(user_name = new_user, password = hash_password(new_pass))
-        user.put()
+        #register a new account
+        print('test')
+        new_user = self.request.get('newname')
+        new_pass = self.request.get('newpass')
         user_check = User.query().filter(User.user_name == new_user).fetch()
         if len(user_check) > 0:
             self.error(403)
         else:
-            self.redirect("/profile")
+            user = User(user_name = new_user, password = hash_password(new_pass))
+            user.put()
+            self.redirect('/profile')
+
+class LogIn (webapp2.RequestHandler):
+    def get(self):
+        template=jinja_env.get_template('login.html')
+        self.response.write(template.render())
+    def post(self):
+        provided_username = self.request.get('username')
+        provided_password = self.request.get('password')
+        stored_username = User.query().filter(User.user_name == provided_username).fetch()[0]
+        password_check = verify_password(stored_username.password, provided_password)
+        if password_check == True:
+            self.redirect('/home')
+        else:
+            self.error(404)
 
 class Profile (webapp2.RequestHandler):
     def get(self):
@@ -55,9 +87,10 @@ class Profile (webapp2.RequestHandler):
         originalUser.grad_date = grad
         originalUser.major = new_major
         originalUser.put()
+        self.redirect('/home')
 
 class Major (webapp2.RequestHandler):
-    def post(self):
+    def get(self):
         template=jinja_env.get_template('majors.html')
         self.response.write(template.render())
 
@@ -66,15 +99,10 @@ class Snake (webapp2.RequestHandler):
         template=jinja_env.get_template('snake.html')
         self.response.write(template.render())
 
-class Snake (webapp2.RequestHandler):
-    def get(self):
-        template=jinja_env.get_template('snake.html')
-        self.response.write(template.render())
-
-
-
 application = webapp2.WSGIApplication([
-    ('/', LogIn),
+    ('/', Home),
+    ('/signup', CreateAccount),
+    ('/signin', LogIn),
     ('/home', Major),
     ('/profile', Profile),
     ('/snake', Snake)
