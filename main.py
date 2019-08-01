@@ -5,18 +5,11 @@ import os
 import hashlib, binascii #for hashing password
 from google.appengine.ext import ndb
 
+
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
-
-def hash_password(password):
-    #Hash a password for storing.
-    salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
-    pwdhash = hashlib.pbkdf2_hmac('sha512', password.encode('utf-8'),
-                                salt, 100000)
-    pwdhash = binascii.hexlify(pwdhash)
-    return (salt + pwdhash).decode('ascii')
 
 def verify_password(stored_password, provided_password):
     #Verify a stored password against one provided by user
@@ -29,12 +22,21 @@ def verify_password(stored_password, provided_password):
     pwdhash = binascii.hexlify(pwdhash).decode('ascii')
     return pwdhash == stored_password
 
+def hash_password(password):
+    #Hash a password for storing.
+    salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
+    pwdhash = hashlib.pbkdf2_hmac('sha512', password.encode('utf-8'),
+                                salt, 100000)
+    pwdhash = binascii.hexlify(pwdhash)
+    return (salt + pwdhash).decode('ascii')
+
 class User(ndb.Model):
-  user_name = ndb.StringProperty(required=False)
-  password = ndb.StringProperty(required=False)
-  e_mail = ndb.StringProperty(required=False, default = '')
-  grad_date = ndb.StringProperty(required=False, default = '')
-  major = ndb.StringProperty(required=False, default = '' )
+    name = ndb.StringProperty(required=False)
+    user_name = ndb.StringProperty(required=False)
+    password = ndb.StringProperty(required=False)
+    e_mail = ndb.StringProperty(required=False, default = '')
+    grad_date = ndb.StringProperty(required=False, default = '')
+    major = ndb.StringProperty(required=False, default = '' )
 
 class Home (webapp2.RequestHandler):
      def get(self):
@@ -49,7 +51,7 @@ class CreateAccount (webapp2.RequestHandler):
         #register a new account
         print('test')
         new_user = self.request.get('newname')
-        new_pass = self.request.get('newpass')
+        new_pass = self.request.get('newword')
         user_check = User.query().filter(User.user_name == new_user).fetch()
         if len(user_check) > 0:
             self.error(403)
@@ -66,8 +68,8 @@ class LogIn (webapp2.RequestHandler):
         provided_username = self.request.get('username')
         provided_password = self.request.get('password')
         stored_username = User.query().filter(User.user_name == provided_username).fetch()[0]
-        password_check = verify_password(stored_username.password, provided_password)
-        if password_check == True:
+        check_pass = verify_password(stored_username.password, provided_password)
+        if check_pass == True:
             self.redirect('/home')
         else:
             self.error(404)
@@ -77,7 +79,8 @@ class Profile (webapp2.RequestHandler):
         profile_template = jinja_env.get_template('profile.html')
         self.response.write(profile_template.render())
     def post(self):
-        new_name = self.request.get('name')
+        new_name = self.request.get('nameuser')
+        new_namename = self.request.get('name')
         new_mail = self.request.get('email')
         grad = self.request.get('grad')
         new_major = self.request.get('major')
@@ -86,6 +89,7 @@ class Profile (webapp2.RequestHandler):
         originalUser.e_mail = new_mail
         originalUser.grad_date = grad
         originalUser.major = new_major
+        originalUser.name = new_namename
         originalUser.put()
         self.redirect('/home')
 
@@ -93,6 +97,17 @@ class Major (webapp2.RequestHandler):
     def get(self):
         template=jinja_env.get_template('majors.html')
         self.response.write(template.render())
+    def post(self):
+        student = User.query().filter(User.user_name == 'Apple').fetch()
+        student_name = student.user_name
+        student_major = student.major
+        dictionary = {
+            "Name": student_name,
+            "Major": student_major,
+        }
+        template=jinja_env.get_template('majors.html')
+        self.response.write(template.render(dictionary))
+
 
 class Snake (webapp2.RequestHandler):
     def get(self):
