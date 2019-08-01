@@ -96,17 +96,14 @@ class Profile (webapp2.RequestHandler):
 class Major (webapp2.RequestHandler):
     def get(self):
         template=jinja_env.get_template('majors.html')
-        self.response.write(template.render())
-    def post(self):
-        student = User.query().filter(User.user_name == 'Apple').fetch()
-        student_name = student.user_name
-        student_major = student.major
-        dictionary = {
-            "Name": student_name,
-            "Major": student_major,
+        student = User.query().fetch()
+        dict ={
+            "students": student
         }
+        self.response.write(template.render(dict))
+    def post(self):
         template=jinja_env.get_template('majors.html')
-        self.response.write(template.render(dictionary))
+
 
 
 class Snake (webapp2.RequestHandler):
