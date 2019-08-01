@@ -29,7 +29,6 @@
   #navbar a:hover {
     background-color: #ebe234;
     color: black;
-
   }
   #navbar a.active {
     background-color: ##3440eb;
@@ -48,10 +47,11 @@
   <div class="header">
    <div id="navbar">
      <center>
-    <a class="active" href link="file:///Users/Abduce/Desktop/FindmyClassmate/homepage.html">Home</a>
-    <a href="javascript:void(0)">About Us</a>
+    <a class="active" href link="/">Home</a>
+    <a href="/AboutUs">About Us</a>
     <a href="javascript:void(0)">Contact</a>
     </center>
+
   </div>
 
     <style>
@@ -65,6 +65,16 @@
 	  			}
 	  		}
 
+      </head>
+  </div>
+    <style>
+	  		body {
+          display: auto;
+          justify-content: center;
+        background-size: 100% auto;
+	    			background-image: url("https://blogs.sjsu.edu/mysjsu/files/2014/08/sjsu-tower-hall-BCramer-SJSU6223-4-10-170-2el266z.jpg");
+          } body
+
 	  		img {
 	  			height: 100%;
 	  			width: 70%%;
@@ -74,6 +84,11 @@
           width: 100%;
           text-align: center;
         }
+        #inner {
+          display: inline-block;
+        }
+        #god
+        {
 
 /* THIS IS ALSO ALJUSTMENT FOR BOX2 AND BOX1 */
         #wrapper{
@@ -109,18 +124,23 @@
     <div id= "img" ><img src="https://am02bpbsu4-flywheel.netdna-ssl.com/wp-content/uploads/2014/02/sjsu-880x440.jpg"
         <br>
       </br>
+      <div id= "inner" >
+          <img src="https://am02bpbsu4-flywheel.netdna-ssl.com/wp-content/uploads/2014/02/sjsu.jpg">
+          <br>
+        </br>
+
         <h3><strong><font color="Yellow">  Welcome to FindmyClassmate!!<h3></font></strong>
           <div id = "wrapper">
           <div id ="box1">
                   <h5></a><font color="blue"> Current Member </h5>
                   <!-- Quick reminder ADD THE LOGIN LINK -->
-                <button type="button"><h2><u><a href="ADD THE LOGIN LINK"> </a><font color="blue"> Login</font></h2></u></button>
+           <button onclick = "window.location.href='/signin'"> Login <font color="blue"> </button>
           </div>
          <div id = "wrapper">
           <div id = "box2">
             <h5><font color="blue"> Sign Up </h5>
             <!-- Quick reminder ADD THE CREATE ACCOUNT LINK -->
-            <button type="button"><h2><u><a href="ADD THE CREATE ACCOUNT LINK"></a> <font color="blue"> Sign Up </font></h2></u></button>
+            <button onclick = "window.location.href='/signup'"> Sign Up<font color="blue"> </button>
           </div>
 
 
