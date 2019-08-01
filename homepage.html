@@ -1,149 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-    <style>
-    body {
-    margin: 0;
-    font-size: 28px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .header {
-    background-color:
-    padding: 30px;
-    text-align: center;
-  }
-  #navbar {
-    overflow: hidden;
-    background-color: #333;
-  }
-  #navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    text-align: center;
-  }
-  #navbar a:hover {
-    background-color: #ebe234;
-    color: black;
-  }
-  #navbar a.active {
-    background-color: ##3440eb;
-    color: white;
-  }
-  .content {
-    padding: 16px;
-  }
-
-  .sticky + .content {
-    padding-top: 60px;
-  }
-  </style>
   <head>
-
-  <div class="header">
-   <div id="navbar">
-     <center>
-    <a class="active" href link="/">Home</a>
-    <a href="/AboutUs">About Us</a>
-    <a href="javascript:void(0)">Contact</a>
-    </center>
-
-  </div>
-
-    <style>
-	  		body {
-          display: cover;
-        justify-content: center;
-        background-size: cover;
-	    			background-image: url("https://blogs.sjsu.edu/mysjsu/files/2014/08/sjsu-tower-hall-BCramer-SJSU6223-4-10-170-2el266z.jpg");
-
-				font-family: sans-serif;
-	  			}
-	  		}
-
-      </head>
-  </div>
-    <style>
-	  		body {
-          display: auto;
-          justify-content: center;
-        background-size: 100% auto;
-	    			background-image: url("https://blogs.sjsu.edu/mysjsu/files/2014/08/sjsu-tower-hall-BCramer-SJSU6223-4-10-170-2el266z.jpg");
-          } body
-
-	  		img {
-	  			height: 100%;
-	  			width: 70%%;
-        }
-        #outer {
-          display: flex;
-          width: 100%;
-          text-align: center;
-        }
-        #inner {
-          display: inline-block;
-        }
-        #god
-        {
-
-/* THIS IS ALSO ALJUSTMENT FOR BOX2 AND BOX1 */
-        #wrapper{
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-        }
-          /* the box1 and box2 is the yellow boxs adjustment */
-        #box1
-        {
-          background-color: yellow;
-          margin-right: 20px;
-          padding: 30px;
-          display: inline-block;
-        }
-        #box2
-        {
-          background-color: yellow;
-          margin-right: 20px;
-          padding: 30px;
-          display: inline-block;
-
-        }
-        </style>
-
     <meta charset="utf-8">
-    <title></title>
+    <script src="script.js"></script>
+    <link href = "static/css/style.css" rel = "stylesheet" type = "text/css">
+
+    <div class="header">
+     <div id="navbar">
+       <center>
+      <a class="active" href link="/">Home</a>
+      <a href="/AboutUs">About Us</a>
+      <a href="/snake">Snake</a>
+      </center>
+
+    </div>
   </head>
-    <div class = 'header'>
-    <meta charset="utf-8">
 
-
-    <div id= "img" ><img src="https://am02bpbsu4-flywheel.netdna-ssl.com/wp-content/uploads/2014/02/sjsu-880x440.jpg"
-        <br>
-      </br>
+<body style = "background-color:lightblue;">
+  <div style>
+    <div id= "outer">
       <div id= "inner" >
-          <img src="https://am02bpbsu4-flywheel.netdna-ssl.com/wp-content/uploads/2014/02/sjsu.jpg">
-          <br>
-        </br>
-
-        <h3><strong><font color="Yellow">  Welcome to FindmyClassmate!!<h3></font></strong>
-          <div id = "wrapper">
-          <div id ="box1">
-                  <h5></a><font color="blue"> Current Member </h5>
-                  <!-- Quick reminder ADD THE LOGIN LINK -->
-           <button onclick = "window.location.href='/signin'"> Login <font color="blue"> </button>
+          <img id="header" src="https://am02bpbsu4-flywheel.netdna-ssl.com/wp-content/uploads/2014/02/sjsu.jpg" height = "100%" width = "50%">
+      </div>
+    </div>
+          <div class="dropdown">
+            <button class="dropbtn">Charles W. Davidson College of Engineering</button>
+            <div class="dropdown-content">
+              <ul>
+                <a href="http://www.sjsu.edu/ae/">Aerospace Engineering</a>
+                <a href = "http://www.sjsu.edu/avtech/"> Aviation and Technology </a>
+                <a href="http://www.sjsu.edu/bme/">Biomedical Engineering</a>
+                <a href="http://www.sjsu.edu/cme/">Chemical Engineering</a>
+                <a href="http://www.sjsu.edu/cee/">Civil Engineering</a>
+                <a href ="http://cmpe.sjsu.edu/"> Computer Engineering</a>
+                <a href="https://ee.sjsu.edu/">Electrical Engineering</a>
+                <a href ="http://www.sjsu.edu/ise/"> Industrial Engineering </a>
+                <a href="http://www.sjsu.edu/me/">Mechanical Engineering</a>
+              </ul>
+            </div>
           </div>
-         <div id = "wrapper">
-          <div id = "box2">
-            <h5><font color="blue"> Sign Up </h5>
-            <!-- Quick reminder ADD THE CREATE ACCOUNT LINK -->
-            <button onclick = "window.location.href='/signup'"> Sign Up<font color="blue"> </button>
+        <div class ="dropdown">
+          <button class="dropbtn">More Majors</button>
+          <div class="dropdown-content">
+            <ul>
+              <a href = "http://www.sjsu.edu/cob/">Lucas College and Graduate School of Business </a>
+              <a href ="http://www.sjsu.edu/education/">Connie L. Lurie College of Education</a>
+              <a href = "http://www.sjsu.edu/chhs/"> College of Health and Human Sciences </a>
+              <a href = "http://www.sjsu.edu/cgs/"> College of Graduate Studies</a>
+              <a href = "http://www.sjsu.edu/humanitiesandarts/"> College of Humanities and the Arts </a>
+              <a href = "http://www.sjsu.edu/cies/">College of Professional and Global Education </a>
+              <a href = "http://www.sjsu.edu/science/"> College of Science</a>
+              <a href = "http://www.sjsu.edu/socialsciences/"> College of Social Sciences</a>
+            </ul>
           </div>
+        </div>
 
-
-
+    <div>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Major</th>
+        </tr>
+          {% for s in students %}
+        <tr>
+          <td> {{s.name}}</td>
+          <td>{{s.user_name}}</td>
+          <td> {{s.major}}</td>
+        </tr>
+          {% endfor %}
+      </table>
+    </div>
+  <div>
+      <p> what's for lunch? </p>
+  </div>
   </body>
+
+
 </html>
