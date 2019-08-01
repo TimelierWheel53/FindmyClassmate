@@ -4,6 +4,16 @@
     <meta charset="utf-8">
     <script src="script.js"></script>
     <link href = "static/css/style.css" rel = "stylesheet" type = "text/css">
+
+    <div class="header">
+     <div id="navbar">
+       <center>
+      <a class="active" href link="/">Home</a>
+      <a href="/AboutUs">About Us</a>
+      <a href="/snake">Snake</a>
+      </center>
+
+    </div>
   </head>
 
 <body style = "background-color:lightblue;">
@@ -29,18 +39,20 @@
               </ul>
             </div>
           </div>
-        <button class="dropbtn">More Majors</button>
-        <div class="dropdown-content">
-          <ul>
-          <a href = "http://www.sjsu.edu/cob/">Lucas College and Graduate School of Business </a>
-          <a href ="http://www.sjsu.edu/education/">Connie L. Lurie College of Education</a>
-          <a href = "http://www.sjsu.edu/chhs/"> College of Health and Human Sciences </a>
-          <a href = "http://www.sjsu.edu/cgs/"> College of Graduate Studies</a>
-          <a href = "http://www.sjsu.edu/humanitiesandarts/"> College of Humanities and the Arts </a>
-          <a href = "http://www.sjsu.edu/cies/">College of Professional and Global Education </a>
-          <a href = "http://www.sjsu.edu/science/"> College of Science</a>
-          <a href = "http://www.sjsu.edu/socialsciences/"> College of Social Sciences</a>
-          </ul>
+        <div class ="dropdown">
+          <button class="dropbtn">More Majors</button>
+          <div class="dropdown-content">
+            <ul>
+              <a href = "http://www.sjsu.edu/cob/">Lucas College and Graduate School of Business </a>
+              <a href ="http://www.sjsu.edu/education/">Connie L. Lurie College of Education</a>
+              <a href = "http://www.sjsu.edu/chhs/"> College of Health and Human Sciences </a>
+              <a href = "http://www.sjsu.edu/cgs/"> College of Graduate Studies</a>
+              <a href = "http://www.sjsu.edu/humanitiesandarts/"> College of Humanities and the Arts </a>
+              <a href = "http://www.sjsu.edu/cies/">College of Professional and Global Education </a>
+              <a href = "http://www.sjsu.edu/science/"> College of Science</a>
+              <a href = "http://www.sjsu.edu/socialsciences/"> College of Social Sciences</a>
+            </ul>
+          </div>
         </div>
 
     <div>
@@ -59,9 +71,7 @@
           {% endfor %}
       </table>
     </div>
-  <div>
-      <p> what's for lunch? </p>
-  </div>
+
   </body>
 
 
